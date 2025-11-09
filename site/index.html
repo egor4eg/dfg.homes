@@ -5,227 +5,149 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>DFG.by — Мебель под заказ (Гомель, Добруш)</title>
   <meta name="description" content="DFG — индивидуальные кухни и корпусная мебель: 3D-проект, чертежи, распил, закупка фурнитуры и сборка. Гомель, Добруш." />
+
+  <!-- favicon -->
+  <link rel="icon" type="image/png" href="img/favicon.png">
+
   <style>
     :root{
       --bg:#faf8f6;
       --text:#222;
       --muted:#6f6f6f;
       --accent:#111;
-      --accent-2:#cfa77a;
       --maxw:1200px;
     }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color:var(--text); background:var(--bg);}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color:var(--text); background:var(--bg);}
     a{color:inherit;text-decoration:none}
+
     .container{max-width:var(--maxw);margin:0 auto;padding:24px;}
 
-    /* header */
-    header{position:fixed;left:0;right:0;top:0;background:rgba(255,255,255,0.98);backdrop-filter:saturate(120%) blur(4px);box-shadow:0 2px 10px rgba(0,0,0,0.04);z-index:40}
-    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:var(--maxw);margin:0 auto;padding:12px;}
-    .brand{display:flex;align-items:center;gap:12px}
-    .brand img{height:52px;width:auto;display:block}
-    .brand .title{font-weight:700;font-size:18px}
-    nav{display:flex;gap:14px;align-items:center}
-    nav a{padding:8px 12px;border-radius:8px;font-weight:600;color:var(--text)}
-    nav a.primary{background:var(--accent);color:#fff}
+    /* HEADER */
+    header{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,0.97);backdrop-filter:blur(8px);box-shadow:0 2px 10px rgba(0,0,0,0.05);z-index:40;}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;max-width:var(--maxw);margin:0 auto;padding:14px 24px;}
+    .brand{display:flex;align-items:center;gap:12px;flex:1;}
+    .brand img{height:48px;width:auto;}
+    .brand .title{font-weight:700;font-size:18px;}
+    .brand .subtitle{font-size:13px;color:var(--muted);}
+    nav{display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:flex-end;}
+    nav a{padding:8px 12px;border-radius:8px;font-weight:600;}
+    nav a.primary{background:var(--accent);color:#fff;}
 
-    /* hero full-width */
-    .hero{
-      height:88vh;
-      min-height:520px;
-      display:flex;
-      align-items:center;
-      position:relative;
-      color:#fff;
-      text-align:left;
-      margin-top:84px; /* header height offset */
-    }
-    .hero::before{
-      content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.18) 45%, rgba(0,0,0,0.45) 100%);
-      pointer-events:none;
-    }
-    .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:saturate(.98);z-index:-1}
-    .hero-inner{max-width:var(--maxw);margin:0 auto;padding:48px;display:flex;align-items:center;gap:28px}
-    .hero-left{flex:1;color:#fff}
-    .hero h1{font-size:40px;line-height:1.02;margin:0 0 10px;font-weight:700}
-    .hero p{margin:0 0 20px;color:rgba(255,255,255,0.92);font-size:18px;max-width:60ch}
-    .hero .cta{display:flex;gap:12px}
-    .btn{background:var(--accent);color:#fff;padding:12px 18px;border-radius:10px;border:0;font-weight:700;cursor:pointer}
-    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.14);color:#fff}
+    /* HERO */
+    .hero{height:88vh;min-height:520px;display:flex;align-items:center;position:relative;color:#fff;margin-top:84px;}
+    .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.25) 50%, rgba(0,0,0,0.55) 100%);}
+    .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:saturate(1);}
+    .hero-inner{max-width:var(--maxw);margin:0 auto;padding:48px;position:relative;}
+    .hero h1{font-size:40px;line-height:1.1;margin-bottom:16px;}
+    .hero p{font-size:18px;max-width:60ch;margin-bottom:24px;}
+    .btn{background:var(--accent);color:#fff;padding:12px 18px;border-radius:10px;border:0;font-weight:700;cursor:pointer;}
+    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.3);color:#fff;}
 
-    /* main sections */
-    main{padding:36px 0 80px}
-    section{padding:48px 0}
-    h2{font-size:26px;text-align:center;margin:0 0 22px}
-    .lead{max-width:900px;margin:0 auto;color:var(--muted);text-align:center;line-height:1.6}
+    main{padding:36px 0 80px;}
+    section{padding:48px 0;}
+    h2{font-size:26px;text-align:center;margin-bottom:22px;}
+    .lead{max-width:900px;margin:0 auto 24px;color:var(--muted);text-align:center;line-height:1.6;}
 
-    /* services */
-    .steps{max-width:980px;margin:18px auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-    .step{background:#fff;border-radius:10px;padding:18px;box-shadow:0 6px 22px rgba(18,18,18,0.04)}
-    .step h3{margin:0 0 8px;font-size:16px}
-    .step p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
+    /* GRID */
+    .steps{max-width:980px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;}
+    .step{background:#fff;border-radius:10px;padding:18px;box-shadow:0 6px 22px rgba(0,0,0,0.04);}
+    .step h3{margin-bottom:8px;font-size:16px;}
+    .step p{color:var(--muted);font-size:14px;}
 
-    /* why */
-    .why{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
-    .why-item{background:#fff;padding:16px;border-radius:10px;box-shadow:0 6px 18px rgba(18,18,18,0.03);text-align:center}
-    .why-item p{margin:8px 0 0;color:var(--muted)}
+    .why{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;}
+    .why-item{background:#fff;padding:16px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.03);text-align:center;}
+    .why-item p{margin-top:8px;color:var(--muted);font-size:14px;}
 
-    /* portfolio */
-    .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;max-width:1200px;margin:0 auto}
-    .portfolio-item{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 6px 22px rgba(0,0,0,0.04)}
-    .portfolio-item img{width:100%;height:100%;object-fit:cover;display:block}
-    .caption{padding:10px;color:var(--muted);font-size:14px}
+    .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;max-width:1200px;margin:0 auto;}
+    .portfolio-item{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 6px 22px rgba(0,0,0,0.04);}
+    .portfolio-item img{width:100%;height:100%;object-fit:cover;display:block;}
+    .caption{padding:10px;color:var(--muted);font-size:14px;}
 
-Мой Велком, [04.11.2025 18:59]
-/* contact */
-    .contact-wrap{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start}
-    .contact-info{padding:16px}
-    .contact-info p{margin:6px 0;color:var(--muted);line-height:1.6}
-    form{background:#fff;padding:16px;border-radius:10px;box-shadow:0 6px 22px rgba(0,0,0,0.04)}
-    input,textarea,select{width:100%;padding:10px;border-radius:8px;border:1px solid #e6e6e6;margin-bottom:10px;font-size:14px}
-    button[type=submit]{background:var(--accent);color:#fff;padding:12px;border-radius:8px;border:0;cursor:pointer;font-weight:700}
+    /* CONTACT */
+    .contact-wrap{max-width:900px;margin:0 auto;text-align:center;}
+    .contact-wrap p{margin:6px 0;color:var(--muted);}
+    .small{font-size:13px;color:var(--muted);}
 
-    footer{background:#f6f6f6;padding:28px 0;margin-top:40px;color:var(--muted);font-size:14px;text-align:center}
-    .small{font-size:13px;color:var(--muted)}
-
-    /* responsive */
-    @media(max-width:900px){
-      .hero h1{font-size:28px}
-      .hero p{font-size:16px}
-      .contact-wrap{grid-template-columns:1fr}
-      header .header-inner{padding:10px}
+    footer{background:#f6f6f6;padding:28px 0;margin-top:40px;color:var(--muted);font-size:14px;text-align:center;}
+    /* MOBILE */
+    @media(max-width:700px){
+      .header-inner{flex-direction:column;align-items:flex-start;}
+      nav{justify-content:flex-start;}
+      .hero h1{font-size:28px;}
+      .hero p{font-size:16px;}
     }
   </style>
 </head>
-<body>
 
+<body>
 <header>
   <div class="header-inner container">
     <div class="brand">
-      <!-- Логотип (положи файл в img/dfg_logo.png) -->
-      <img src="img/dfg_logo.png" alt="DFG — Details. Form. Growth.">
+      <img src="img/dfg_logo.png" alt="DFG — Дизайн. Функция. Геометрия.">
       <div>
-        <div class="title">DFG — Details. Form. Growth.</div>
-        <div style="font-size:13px;color:var(--muted)">Гомель · Добруш — 3D, чертежи, распил, сборка</div>
+        <div class="title">DFG — Дизайн. Функция. Геометрия.</div>
+        <div class="subtitle">Гомель · Добруш — 3D, чертежи, распил, сборка</div>
       </div>
     </div>
-
     <nav>
       <a href="#services">Услуги</a>
-      <a href="#portfolio">Наши работы</a>
-      <a href="#contact" class="primary">Заказать расчёт</a>
+      <a href="#portfolio">Работы</a>
+      <a href="#contact" class="primary">Контакты</a>
     </nav>
   </div>
 </header>
 
 <!-- HERO -->
 <section class="hero">
-  <!-- поменяй путь к изображению на img/hero_kitchen.jpg -->
   <div class="hero-bg" style="background-image:url('img/hero_kitchen.jpg')"></div>
   <div class="hero-inner container">
-    <div class="hero-left">
-      <h1>Индивидуальные кухни и мебель под ваш интерьер — без переплат</h1>
-      <p>Я помогу спроектировать, подобрать материалы, заказать распил и собрать мебель так, как будто для себя. Честно, аккуратно и без лишних посредников.</p>
-      <div class="cta">
-        <a class="btn" href="#contact" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Заказать расчёт стоимости</a>
-        <a class="btn secondary" href="#portfolio">Посмотреть работы</a>
-      </div>
-    </div>
+    <h1>Индивидуальные кухни и мебель под ваш интерьер — без переплат</h1>
+    <p>Я помогу спроектировать, подобрать материалы, заказать распил и собрать мебель так, как будто для себя. Честно, аккуратно и без лишних посредников.</p>
+    <a class="btn" href="#contact">Связаться</a>
   </div>
 </section>
 
 <main class="container">
 
-  <!-- Как я работаю -->
   <section id="services">
     <h2>Как я работаю</h2>
-    <p class="lead">Весь процесс под ключ — от проекта до установки. Всё прозрачно, без навязанных услуг: вы получаете точный результат и контроль на каждом этапе.</p>
-
-    <div class="steps" style="margin-top:18px">
-      <div class="step">
-        <h3>3D-проект</h3>
-        <p>Создаю визуализацию под ваши размеры и пожелания — вы увидите проект ещё до производства.</p>
-      </div>
-      <div class="step">
-        <h3>Чертежи и распил</h3>
-        <p>Готовлю точные чертежи и технологические карты — распил делаю аккуратно и экономно.</p>
-      </div>
-      <div class="step">
-        <h3>Закупка фурнитуры</h3>
-        <p>Подбираю и закупаю фурнитуру у проверенных поставщиков — надёжные материалы по честной цене.</p>
-      </div>
-      <div class="step">
-        <h3>Сборка на месте</h3>
-        <p>Устанавливаю и довожу проект до идеального состояния — аккуратно, без спешки и лишнего мусора.</p>
-      </div>
+    <p class="lead">Всё под ключ — от 3D до сборки. Без посредников, без навязанных услуг, только нужное.</p>
+    <div class="steps">
+      <div class="step"><h3>3D-проект</h3><p>Создаю визуализацию под размеры и стиль вашей комнаты.</p></div>
+      <div class="step"><h3>Чертежи и распил</h3><p>Подготавливаю точные чертежи и заказываю распил деталей.</p></div>
+      <div class="step"><h3>Фурнитура</h3><p>Подбираю надёжные материалы и фурнитуру у проверенных поставщиков.</p></div>
+      <div class="step"><h3>Сборка</h3><p>Собираю на месте — аккуратно и с вниманием к каждой детали.</p></div>
     </div>
   </section>
 
-  <!-- Почему удобно -->
   <section>
-    <h2>Почему это удобно</h2>
-    <div class="why" style="margin-top:18px">
-      <div class="why-item">
-        <strong>Всё в одних руках</strong>
-        <p>Не нужно искать дизайнера, мебельщика и сборщика отдельно — экономит время и нервы.</p>
-      </div>
-      <div class="why-item">
-        <strong>Честные расчёты</strong>
-        <p>Вы платите только за материалы и работу — без лишних наценок посредников.</p>
-
-
-</div>
-      <div class="why-item">
-        <strong>Полный контроль</strong>
-        <p>Вы знаете, из чего сделана ваша мебель — материалы и фурнитура под контролем.</p>
-      </div>
-      <div class="why-item">
-        <strong>Индивидуальность</strong>
-        <p>Никаких шаблонов — только решения под вашу планировку и стиль.</p>
-      </div>
+    <h2>Почему удобно</h2>
+    <div class="why">
+      <div class="why-item"><strong>Всё в одних руках</strong><p>От проекта до сборки — без поиска разных специалистов.</p></div>
+      <div class="why-item"><strong>Экономия</strong><p>Без наценок и посредников, вы платите только за работу и материалы.</p></div>
+      <div class="why-item"><strong>Контроль</strong><p>Вы видите каждый этап и знаете, из чего сделана мебель.</p></div>
+      <div class="why-item"><strong>Индивидуальность</strong><p>Никаких шаблонов — проект под ваш стиль и планировку.</p></div>
     </div>
   </section>
 
-  <!-- Портфолио -->
   <section id="portfolio">
-    <h2>Наши работы</h2>
-    <div class="portfolio-grid" style="margin-top:18px">
-      <div class="portfolio-item"><img src="img/kitchen_panelka_1.jpg" alt="Кухня в панельном доме"><div class="caption">Кухня в панельке — компактное решение, Гомель</div></div>
-      <div class="portfolio-item"><img src="img/kitchen_red_black.jpg" alt="Угловая кухня красно-чёрная"><div class="caption">Угловая кухня — глянец + мат</div></div>
-      <div class="portfolio-item"><img src="img/kitchen_linear_light.jpg" alt="Линейная кухня"><div class="caption">Линейная кухня с подсветкой</div></div>
-      <div class="portfolio-item"><img src="img/kitchen_dark_house.jpg" alt="Кухня-гостиная"><div class="caption">Кухня-гостиная — тёмный дуб</div></div>
-      <div class="portfolio-item"><img src="img/wardrobe_1.jpg" alt="Встроенный шкаф"><div class="caption">Встроенный шкаф — МДФ, мат</div></div>
-      <div class="portfolio-item"><img src="img/mdf_panels.jpg" alt="Стеновые панели"><div class="caption">Стеновые панели из МДФ</div></div>
+    <h2>Примеры работ</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item"><img src="img/kitchen_red_black.jpg" alt=""><div class="caption">Кухня глянец + мат, Гомель</div></div>
+      <div class="portfolio-item"><img src="img/kitchen_linear_light.jpg" alt=""><div class="caption">Линейная кухня с подсветкой</div></div>
+      <div class="portfolio-item"><img src="img/kitchen_panelka_1.jpg" alt=""><div class="caption">Компактная кухня в панельном доме</div></div>
+      <div class="portfolio-item"><img src="img/wardrobe_1.jpg" alt=""><div class="caption">Встроенный шкаф — МДФ, мат</div></div>
     </div>
   </section>
 
-  <!-- Контакты -->
   <section id="contact">
     <h2>Контакты</h2>
-    <div class="contact-wrap" style="margin-top:18px">
-      <div class="contact-info">
-        <p><strong>Телефон / Viber / Telegram:</strong> <a href="tel:+375298446837">+375 29 844 68 37</a></p>
-        <p><strong>Email:</strong> <a href="mailto:dezissacha@gmail.com">dezissacha@gmail.com</a></p>
-        <p><strong>Адрес:</strong> Гомель, Добруш</p>
-        <p class="small">Самозанятый Мороз Александр Михайлович<br>УНП EA6100568, 432 инспекция МНС по Железнодорожному району г. Гомеля</p>
-        <p class="small" style="margin-top:8px">Работаю по индивидуальным заказам: проектирование, чертежи, распил, закупка фурнитуры и сборка.</p>
-      </div>
-
-      <div>
-        <!-- форма — замените YOUR_FORMSPREE_ID на ваш ID из formspree -->
-        <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
-          <input type="text" name="name" placeholder="Имя" required>
-          <input type="tel" name="phone" placeholder="Телефон (Viber/Telegram)" required>
-          <select name="service">
-            <option value="kitchen">Кухня</option>
-            <option value="wardrobe">Шкаф / Прихожая</option>
-            <option value="panels">Панели МДФ</option>
-            <option value="other">Другое</option>
-          </select>
-          <textarea name="message" rows="4" placeholder="Коротко о задаче, размеры, удобное время для замера"></textarea>
-          <button type="submit">Оставить заявку</button>
-        </form>
-      </div>
+    <div class="contact-wrap">
+      <p><strong>Телефон / Viber / Telegram:</strong><br> <a href="tel:+375298446837">+375 (29) 844 68 37</a></p>
+      <p><strong>Email:</strong> <a href="mailto:dezissacha@gmail.com">dezissacha@gmail.com</a></p>
+      <p><strong>Адрес:</strong> Гомель, Добруш</p>
+      <p class="small">Самозанятый Мороз Александр Михайлович · УНП EA6100568</p>
     </div>
   </section>
 
@@ -233,12 +155,9 @@
 
 <footer>
   <div class="container">
-    © 2025 DFG.by — Мебель на заказ в Гомеле и Добруше<br>
-    Самозанятый Мороз Александр Михайлович<br>
-    УНП EA6100568, 432 инспекция МНС по Железнодорожному району г. Гомеля<br>
-    Тел.: +375 (29) 844 68 37
+    © 2025 DFG.by — Дизайн. Функция. Геометрия.<br>
+    Самозанятый Мороз Александр Михайлович, г. Гомель · УНП EA6100568
   </div>
 </footer>
-
 </body>
 </html>

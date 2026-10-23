@@ -40,7 +40,7 @@
   }
   </script>
 
-  <link rel="stylesheet" href="style.css?v=c69a9fc893e4">
+  <link rel="stylesheet" href="style.css?v=ac22d71e25cf">
 </head>
 
 <body>
@@ -54,6 +54,7 @@
       </div>
     </a>
     <nav aria-label="Основная навигация">
+      <a href="index.html">Главная</a>
       <a href="custom.html" aria-current="page">Мебель на заказ</a>
       <a href="designers.html">Дизайнерам</a>
       <a href="design.html">Проектирование</a>
@@ -98,7 +99,7 @@
 </li>
 </ol>
 </section>
-<section>
+<section class="section-tone">
 <h2>Ориентировочные цены</h2>
 <dl class="price-list">
 <div>
@@ -173,14 +174,23 @@
 </a><figcaption>Шкаф-купе с комбинированными фасадами</figcaption></figure>
     </div>
   </section>  <section id="contact">
-    <h2>Контакты</h2>
+    <h2>Связаться со мной</h2>
     <div class="contact-wrap">
-      <p><strong>Телефон / Viber / Telegram / WhatsApp:</strong><br> <a href="tel:+375298446837">+375 (29) 844 68 37</a>
-</p>
-      <p><strong>Email:</strong> <a href="mailto:dezissacha@gmail.com">dezissacha@gmail.com</a>
-</p>
-
-      <button class="btn" id="open-form" style="margin-top:18px;">Заказать звонок</button>
+      <p class="contact-intro">Обсудим вашу мебель? Для начала можно прислать примерные размеры, фото помещения и пожелания.</p>
+      <p><a href="tel:+375298446837" aria-label="Позвонить Александру: +375 29 844 68 37">+375 (29) 844 68 37</a></p>
+      <div class="contact-actions" aria-label="Способы связи">
+        <a class="contact-action contact-action-primary" href="tel:+375298446837">Позвонить</a>
+        <a class="contact-action" href="https://wa.me/375298446837" target="_blank" rel="noopener noreferrer" aria-label="Написать Александру в WhatsApp">WhatsApp</a>
+        <a class="contact-action" href="https://t.me/+375298446837" target="_blank" rel="noopener noreferrer" aria-label="Написать Александру в Telegram">Telegram</a>
+        <a class="contact-action" href="viber://chat?number=%2B375298446837" aria-label="Написать Александру в Viber">Viber</a>
+      </div>
+      <p class="contact-email"><a href="mailto:dezissacha@gmail.com">dezissacha@gmail.com</a></p>
+      <p class="contact-app-note">Viber открывается в установленном приложении. Можно также написать по номеру выше.</p>
+      <div class="callback-option">
+        <p>Удобнее, чтобы я перезвонил?</p>
+        <button class="btn" id="open-form" type="button">Заказать звонок</button>
+      </div>
+      <p class="contact-area">Гомель и район</p>
     </div>
   </section>
 </main>

@@ -132,13 +132,22 @@ const modal = document.getElementById('callback-modal');
 
 
   function updateHeaderOffset() {
-    const headerHeight = document.querySelector('header').offsetHeight;
-    document.documentElement.style.setProperty('--header-offset', (headerHeight + 16)+ 'px');
+    const header = document.querySelector('header');
+    const inner = header.querySelector('.header-inner');
+    const brand = header.querySelector('.brand');
+    const gap = parseFloat(getComputedStyle(inner).rowGap) || 0;
+    const hiddenHeight = window.matchMedia('(max-width:700px)').matches
+      ? brand.offsetHeight + gap : 0;
+    document.documentElement.style.setProperty('--mobile-header-top', -hiddenHeight + 'px');
+    document.documentElement.style.setProperty('--header-offset', (header.offsetHeight - hiddenHeight + 16) + 'px');
   }
 
   updateHeaderOffset();
 
   window.addEventListener('resize', updateHeaderOffset);
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(updateHeaderOffset).observe(document.querySelector('header'));
+  }
 
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && modal.classList.contains('show')) closeBtn.click();

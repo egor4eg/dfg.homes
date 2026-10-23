@@ -486,3 +486,8 @@ footer { background:#eee9e2; line-height:1.7; margin-top:0; }
  #contact { margin-top:24px; padding:32px 0; }
  .contact-action { font-size:14px; }
 }
+
+/* The brand row scrolls away naturally; mobile navigation stays visible. */
+@media(max-width:700px) {
+ header { top:var(--mobile-header-top, 0px); }
+}

@@ -394,3 +394,19 @@ body.image-open { overflow:hidden; }
 @media(prefers-reduced-motion:reduce) { .project-photo img { transition:none; } }
 
 .viewer-navigation[hidden] { display:none; }
+
+/* Design-page hero: a blueprint-to-visualization illustration. */
+.design-hero { height:72vh; min-height:560px; max-height:820px; }
+.design-hero .hero-bg { background-position:center; }
+.design-hero::before { content:""; position:absolute; inset:0; z-index:1; pointer-events:none; background:linear-gradient(90deg, rgba(15,23,29,.72), rgba(15,23,29,.4) 55%, rgba(15,23,29,.08)); }
+.design-hero-copy { max-width:650px; }
+.design-hero .eyebrow { color:#f0ddc7; font-size:13px; }
+.design-hero h1 { font-size:clamp(32px,4vw,48px); }
+.design-hero p { line-height:1.65; }
+.design-hero-actions { display:flex; flex-wrap:wrap; gap:12px; }
+.design-hero .btn.secondary { border-color:rgba(255,255,255,.65); }
+@media(max-width:700px) {
+ .design-hero { height:auto; min-height:560px; max-height:none; }
+ .design-hero .hero-bg { background-position:42% center; }
+ .design-hero::before { background:linear-gradient(90deg, rgba(15,23,29,.76), rgba(15,23,29,.42)); }
+}

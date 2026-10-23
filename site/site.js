@@ -158,3 +158,44 @@ const modal = document.getElementById('callback-modal');
       first.focus();
     }
   });
+
+// Full-size photographs; links still open the source image without JavaScript.
+const photoLinks = [...document.querySelectorAll('a[data-gallery]')];
+const viewer = document.getElementById('photo-viewer');
+if (photoLinks.length < 2) viewer.querySelector('.viewer-navigation').hidden = true;
+let photoIndex = 0;
+let photoTrigger = null;
+function displayPhoto(index) {
+  photoIndex = (index + photoLinks.length) % photoLinks.length;
+  const link = photoLinks[photoIndex];
+  const image = document.getElementById('photo-full');
+  image.src = link.href;
+  image.alt = link.dataset.caption;
+  document.getElementById('photo-caption').textContent = link.dataset.caption;
+  document.getElementById('photo-count').textContent = `${photoIndex + 1} / ${photoLinks.length}`;
+}
+photoLinks.forEach((link, index) => {
+  link.addEventListener('click', (event) => {
+    if (!viewer.showModal || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    photoTrigger = link;
+    displayPhoto(index);
+    viewer.showModal();
+    document.body.classList.add('image-open');
+  });
+});
+document.getElementById('photo-close').addEventListener('click', () => viewer.close());
+document.getElementById('photo-prev').addEventListener('click', () => displayPhoto(photoIndex - 1));
+document.getElementById('photo-next').addEventListener('click', () => displayPhoto(photoIndex + 1));
+viewer.addEventListener('keydown', (event) => {
+  if (event.key === 'ArrowLeft') { event.preventDefault(); displayPhoto(photoIndex - 1); }
+  if (event.key === 'ArrowRight') { event.preventDefault(); displayPhoto(photoIndex + 1); }
+});
+viewer.addEventListener('click', (event) => {
+  const rect = viewer.getBoundingClientRect();
+  if (event.target === viewer && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) viewer.close();
+});
+viewer.addEventListener('close', () => {
+  document.body.classList.remove('image-open');
+  photoTrigger?.focus();
+});

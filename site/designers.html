@@ -4,12 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Техническая реализация проектов для дизайнеров — DFG.homes</title>
-  <meta name="description" content="Конструирование и реализация корпусной мебели по эскизам дизайнеров интерьера в Гомеле и Добруше." />
+  <meta name="description" content="Конструирование и реализация корпусной мебели по эскизам дизайнеров интерьера в Гомеле и районе." />
 
   <meta name="keywords" content="кухни Гомель, мебель под заказ, кухни на заказ Гомель, корпусная мебель, дизайн кухни, распил, сборка мебели, МДФ, мебель МДФ">
 
   <meta property="og:title" content="Техническая реализация проектов для дизайнеров — DFG.homes">
-  <meta property="og:description" content="Конструирование и реализация корпусной мебели по эскизам дизайнеров интерьера в Гомеле и Добруше.">
+  <meta property="og:description" content="Конструирование и реализация корпусной мебели по эскизам дизайнеров интерьера в Гомеле и районе.">
   <meta property="og:image" content="https://dfg.homes/img/dfg_logo.png">
   <meta property="og:url" content="https://dfg.homes/designers.html">
   <meta property="og:type" content="website">
@@ -35,12 +35,12 @@
       "addressCountry": "BY"
     },
     "priceRange": "$$",
-    "description": "Индивидуальные кухни и корпусная мебель на заказ: проектирование, распил, сборка. Работаем в Гомеле и Добруше.",
+    "description": "Индивидуальные кухни и корпусная мебель на заказ: проектирование, распил, сборка. Работаем в Гомеле и районе.",
     "openingHours": "Mo-Sa 08:00-22:00"
   }
   </script>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=9d75a721176b">
 </head>
 
 <body>
@@ -50,7 +50,7 @@
       <img src="img/dfg_logo.png" alt="DFG — Дизайн. Функция. Геометрия.">
       <div>
         <div class="title">DFG — Дизайн. Функция. Геометрия.</div>
-        <div class="subtitle">Гомель · Добруш — 3D, чертежи, распил, сборка</div>
+        <div class="subtitle">Гомель и район — 3D, чертежи, распил, сборка</div>
       </div>
     </a>
     <nav aria-label="Основная навигация">
@@ -64,26 +64,34 @@
 </header>
 <main class="container">
 <section class="page-intro">
-<p class="eyebrow">DFG · Гомель и Добруш</p>
+<p class="eyebrow">DFG · Гомель и район</p>
 <h1>Техническая реализация проектов для дизайнеров</h1>
 <p>Вы задаёте облик интерьера. Я прорабатываю конструкцию мебели, подбираю технические решения и помогаю довести проект до установки.</p><a class="btn" href="#contact">Обсудить сотрудничество</a>
 </section>
+<section class="service-visual" aria-label="Пример мебели">
+<a class="project-photo" href="img/photo_2026-01-25_12-48-27.jpg" data-gallery data-caption="Угловая кухня с рамочными фасадами" aria-label="Открыть фото: Угловая кухня с рамочными фасадами">
+  <img src="img/photo_2026-01-25_12-48-27.jpg" alt="Угловая кухня с рамочными фасадами" loading="lazy" decoding="async">
+  <span class="photo-hint" aria-hidden="true">Смотреть фото ↗</span>
+</a>
+<div class="visual-copy"><h2>Дизайн складывается из деталей</h2><p>Ритм фасадов, открытые секции и размещение техники — решения, которые важно согласовать до подготовки деталей.</p></div>
+</section>
+
 <section>
 <h2>Где подключаюсь к проекту</h2>
-<div class="steps">
-<article class="step">
+<ol class="steps">
+<li class="step">
 <h3>Проверка эскизов</h3>
 <p>Обсуждаем реализуемость узлов, открывание фасадов, расположение техники и доступ к коммуникациям.</p>
-</article>
-<article class="step">
+</li>
+<li class="step">
 <h3>Конструирование</h3>
 <p>Прорабатываю размеры, зазоры, крепления и фурнитуру. Изменения, влияющие на дизайн, согласовываю с вами.</p>
-</article>
-<article class="step">
+</li>
+<li class="step">
 <h3>Подготовка и монтаж</h3>
 <p>По согласованному объёму беру на себя подготовку заказа деталей, комплектацию и сборку мебели.</p>
-</article>
-</div>
+</li>
+</ol>
 </section>
 <section>
 <h2>Как строится сотрудничество</h2>
@@ -160,10 +168,16 @@
 <footer>
   <div class="container">
     © 2026 DFG.homes — Дизайн. Функция. Геометрия.<br>
-    Мороз Александр Михайлович, г. Гомель · УНП EA6100568
+    Мороз Александр Михайлович, Гомель и район · УНП EA6100568
   </div>
 </footer>
 
-<script src="site.js" defer></script>
+<dialog id="photo-viewer" class="photo-viewer" aria-label="Просмотр фотографий">
+  <div class="viewer-toolbar"><span id="photo-count" aria-live="polite"></span><button type="button" id="photo-close" aria-label="Закрыть фото">Закрыть ×</button></div>
+  <figure><img id="photo-full" alt=""><figcaption id="photo-caption" aria-live="polite"></figcaption></figure>
+  <div class="viewer-navigation"><button type="button" id="photo-prev" aria-label="Предыдущее фото">← Назад</button><button type="button" id="photo-next" aria-label="Следующее фото">Далее →</button></div>
+</dialog>
+
+<script src="site.js?v=1fe7085bd6ab" defer></script>
 </body>
 </html>

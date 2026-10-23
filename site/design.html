@@ -35,12 +35,12 @@
       "addressCountry": "BY"
     },
     "priceRange": "$$",
-    "description": "Индивидуальные кухни и корпусная мебель на заказ: проектирование, распил, сборка. Работаем в Гомеле и Добруше.",
+    "description": "Индивидуальные кухни и корпусная мебель на заказ: проектирование, распил, сборка. Работаем в Гомеле и районе.",
     "openingHours": "Mo-Sa 08:00-22:00"
   }
   </script>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=9d75a721176b">
 </head>
 
 <body>
@@ -50,7 +50,7 @@
       <img src="img/dfg_logo.png" alt="DFG — Дизайн. Функция. Геометрия.">
       <div>
         <div class="title">DFG — Дизайн. Функция. Геометрия.</div>
-        <div class="subtitle">Гомель · Добруш — 3D, чертежи, распил, сборка</div>
+        <div class="subtitle">Гомель и район — 3D, чертежи, распил, сборка</div>
       </div>
     </a>
     <nav aria-label="Основная навигация">
@@ -64,26 +64,34 @@
 </header>
 <main class="container">
 <section class="page-intro">
-<p class="eyebrow">DFG · Гомель и Добруш</p>
+<p class="eyebrow">DFG · Гомель и район</p>
 <h1>Проектирование мебели</h1>
 <p>Для тех, кто планирует заказать изготовление отдельно или собрать мебель самостоятельно. Помогу перевести идею в понятную конструкцию и рабочую документацию.</p><a class="btn" href="#contact">Обсудить проект</a>
 </section>
+<section class="service-visual" aria-label="Пример мебели">
+<a class="project-photo" href="img/photo_2026-01-25_12-01-04_1.jpg" data-gallery data-caption="Шкаф с открытой угловой секцией" aria-label="Открыть фото: Шкаф с открытой угловой секцией">
+  <img src="img/photo_2026-01-25_12-01-04_1.jpg" alt="Шкаф с открытой угловой секцией" loading="lazy" decoding="async">
+  <span class="photo-hint" aria-hidden="true">Смотреть фото ↗</span>
+</a>
+<div class="visual-copy"><h2>Сначала — логика конструкции</h2><p>Размеры секций, глубина полок и открывание фасадов прорабатываются в проекте. На фото — пример сочетания открытого и закрытого хранения.</p></div>
+</section>
+
 <section>
 <h2>Что входит в проект</h2>
-<div class="steps">
-<article class="step">
+<ol class="steps">
+<li class="step">
 <h3>Конструкция</h3>
 <p>Компоновка изделия и размеры деталей с учётом выбранных материалов и фурнитуры.</p>
-</article>
-<article class="step">
+</li>
+<li class="step">
 <h3>Деталировка</h3>
 <p>Перечень деталей, материалов и кромления для согласованной конструкции.</p>
-</article>
-<article class="step">
+</li>
+<li class="step">
 <h3>Чертежи и фурнитура</h3>
 <p>Рабочие чертежи и перечень фурнитуры. Состав документации и формат файлов согласовываем под вашу задачу.</p>
-</article>
-</div>
+</li>
+</ol>
 </section>
 <section>
 <h2>Ориентировочные цены</h2>
@@ -171,10 +179,16 @@
 <footer>
   <div class="container">
     © 2026 DFG.homes — Дизайн. Функция. Геометрия.<br>
-    Мороз Александр Михайлович, г. Гомель · УНП EA6100568
+    Мороз Александр Михайлович, Гомель и район · УНП EA6100568
   </div>
 </footer>
 
-<script src="site.js" defer></script>
+<dialog id="photo-viewer" class="photo-viewer" aria-label="Просмотр фотографий">
+  <div class="viewer-toolbar"><span id="photo-count" aria-live="polite"></span><button type="button" id="photo-close" aria-label="Закрыть фото">Закрыть ×</button></div>
+  <figure><img id="photo-full" alt=""><figcaption id="photo-caption" aria-live="polite"></figcaption></figure>
+  <div class="viewer-navigation"><button type="button" id="photo-prev" aria-label="Предыдущее фото">← Назад</button><button type="button" id="photo-next" aria-label="Следующее фото">Далее →</button></div>
+</dialog>
+
+<script src="site.js?v=1fe7085bd6ab" defer></script>
 </body>
 </html>

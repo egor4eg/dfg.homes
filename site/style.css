@@ -491,3 +491,8 @@ footer { background:#eee9e2; line-height:1.7; margin-top:0; }
 @media(max-width:700px) {
  header { top:var(--mobile-header-top, 0px); }
 }
+
+/* Local brand icons supplement visible messenger names. */
+.contact-actions { max-width:420px; grid-template-columns:repeat(auto-fit,minmax(105px,1fr)); }
+.contact-action { gap:6px; white-space:nowrap; }
+.messenger-icon { display:block; flex:0 0 18px; width:18px; height:18px; }

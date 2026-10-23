@@ -40,304 +40,24 @@
   }
   </script>
 
-  <style>
-    :root{
-      --bg:#faf8f6;
-      --text:#222;
-      --muted:#6f6f6f;
-      --accent:#111;
-      --maxw:1200px;
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color:var(--text); background:var(--bg);}
-    a{color:inherit;text-decoration:none}
-
-    .container{max-width:var(--maxw);margin:0 auto;padding:24px;}
-
-    /* HEADER */
-    header{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,0.97);backdrop-filter:blur(8px);box-shadow:0 2px 10px rgba(0,0,0,0.05);z-index:40;}
-    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;max-width:var(--maxw);margin:0 auto;padding:14px 24px;}
-    .brand{display:flex;align-items:center;gap:12px;flex:1;}
-    .brand img{height:48px;width:auto;}
-    .brand .title{font-weight:700;font-size:18px;}
-    .brand .subtitle{font-size:13px;color:var(--muted);}
-    nav{display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:flex-end;}
-    nav a{padding:8px 12px;border-radius:8px;font-weight:600;}
-
-    @media (max-width: 700px) {
-      .header-inner {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 10px;
-      }
-
-      nav {
-        justify-content: center;
-        width: 100%;
-      }
-
-      nav a {
-        padding: 6px 10px;
-        font-size: 16px;
-      }
-
-      .brand {
-        justify-content: center;
-      }
-    }
-
-    /* HERO */
-    .hero{height:88vh;min-height:520px;display:flex;align-items:center;position:relative;color:#fff;margin-top:84px;}
-    .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.25) 50%, rgba(0,0,0,0.55) 100%);}
-    .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:saturate(1);}
-    .hero-inner{max-width:var(--maxw);margin:0 auto;padding:48px;position:relative;}
-    .hero h1{font-size:40px;line-height:1.1;margin-bottom:16px;}
-    .hero p{font-size:18px;max-width:60ch;margin-bottom:24px;}
-    .btn{background:var(--accent);color:#fff;padding:12px 18px;border-radius:10px;border:0;font-weight:700;cursor:pointer;}
-    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.3);color:#fff;}
-
-    main{padding:36px 0 80px;}
-    section{padding:48px 0;}
-    h2{font-size:26px;text-align:center;margin-bottom:22px;}
-    .lead{max-width:900px;margin:0 auto 24px;color:var(--muted);text-align:center;line-height:1.6;}
-
-    /* GRID */
-    .steps{max-width:980px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;}
-    .step{background:#fff;border-radius:10px;padding:18px;box-shadow:0 6px 22px rgba(0,0,0,0.04);}
-    .step h3{margin-bottom:8px;font-size:16px;}
-    .step p{color:var(--muted);font-size:14px;}
-
-   .why{
-      max-width:980px;
-      margin:0 auto;
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:16px;
-    }
-    .why-item{background:#fff;padding:16px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.03);text-align:center;}
-    .why-item p{margin-top:8px;color:var(--muted);font-size:14px;}
-
-    .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;max-width:1200px;margin:0 auto;}
-    .portfolio-item{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 6px 22px rgba(0,0,0,0.04);}
-    .portfolio-item img{width:100%;height:100%;object-fit:cover;display:block;}
-    .caption{padding:10px;color:var(--muted);font-size:14px;}
-
-    /* CONTACT */
-    .contact-wrap{max-width:900px;margin:0 auto;text-align:center;}
-    .contact-wrap p{margin:6px 0;color:var(--muted);}
-    .small{font-size:13px;color:var(--muted);}
-
-    footer{background:#f6f6f6;padding:28px 0;margin-top:40px;color:var(--muted);font-size:14px;text-align:center;}
-
-    html {
-      scroll-padding-top: var(--header-offset, 10px);
-    }
-
-    /* MODAL */
-    .modal{
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,0.55);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      padding:20px;
-      z-index:999;
-      opacity:0;
-      transition:opacity .15s ease-out;
-    }
-    .modal.show{
-      display:flex;
-      opacity:1;
-    }
-    .modal-content{
-      background:#fff;
-      padding:28px;
-      border-radius:14px;
-      width:100%;
-      max-width:420px;
-      box-shadow:0 8px 40px rgba(0,0,0,0.25);
-      position:relative;
-      transform:translateY(10px);
-      transition:transform .15s ease-out;
-    }
-    .modal.show .modal-content{
-      transform:translateY(0);
-    }
-    .modal-content h3{
-      text-align:center;
-      margin-bottom:16px;
-      font-size:22px;
-    }
-    .modal-content input,
-    .modal-content textarea{
-      width:100%;
-      padding:12px;
-      margin-bottom:12px;
-      border-radius:8px;
-      border:1px solid #ddd;
-      font-size:15px;
-    }
-    .modal-close{
-      position:absolute;
-      top:10px;
-      right:12px;
-      font-size:26px;
-      background:none;
-      border:none;
-      color:#666;
-      cursor:pointer;
-    }
-
-    .submit-btn {
-      width: 100%;
-      padding: 14px;
-      font-size: 17px;
-      border-radius: 10px;
-      font-weight: 700;
-    }
-
-    #close-after-submit {
-      width: 100%;
-    }
-
-    .input-error {
-      border-color: #b00020 !important;
-      background: #ffecec;
-    }
-
-    @media (min-width: 701px) {
-      .modal-header {
-        display: none !important;
-      }
-
-      .modal-close {
-        display: none !important;
-      }
-    }
-
-    /* MOBILE FULLSCREEN MODAL */
-    @media(max-width:700px){
-
-      body.modal-open {
-        overflow: hidden;
-        height: 100dvh;
-      }
-
-      .modal{
-        padding:0;
-      }
-
-      .modal-content{
-        width:100%;
-        height:100dvh;
-        max-width:none;
-        border-radius:0;
-        padding:70px 20px 100px; /* сверху под шапку, снизу под кнопку */
-        box-shadow:none;
-        overflow:hidden;
-        position:relative;
-        animation:modalSlideUp .22s ease-out;
-      }
-
-      @keyframes modalSlideUp{
-        from{transform:translateY(40px);opacity:0}
-        to{transform:translateY(0);opacity:1}
-      }
-
-      /* FIXED TOP BAR */
-      .modal-header{
-        position:fixed;
-        top:0;
-        left:0;
-        right:0;
-        height:60px;
-        background:#fff;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        font-size:20px;
-        font-weight:700;
-        z-index:1001;
-        border-bottom:1px solid #eee;
-      }
-
-      .modal-close{
-        position:fixed;
-        top:14px;
-        right:16px;
-        font-size:34px;
-        z-index:1002;
-      }
-
-      /* FIXED BOTTOM ACTION BAR */
-      .modal-submit-bar{
-        position:fixed;
-        bottom:0;
-        left:0;
-        right:0;
-        background:#fff;
-        padding:14px 20px;
-        border-top:1px solid #eee;
-        z-index:1001;
-      }
-
-      .modal-submit-bar button{
-        width:100%;
-        padding:14px;
-        background:#111;
-        color:#fff;
-        border-radius:10px;
-        font-size:17px;
-        font-weight:700;
-      }
-
-      .modal-form {
-        display: flex;
-        flex-direction: column;
-        height: calc(100dvh - 60px - 70px);
-        overflow: hidden;
-      }
-
-    /* MOBILE FORM LAYOUT WITH EXPANDING TEXTAREA */
-    .modal-form {
-      display: flex;
-      flex-direction: column;
-      height: calc(100vh - 60px - 70px);
-      /* 60px — высота шапки, 70px — нижняя панель */
-      overflow: hidden;
-    }
-
-    /* Поля имени и телефона — фиксированные */
-    .modal-form input {
-      flex: 0 0 auto;
-    }
-
-    /* Комментарий растягивается */
-    .modal-form textarea {
-      flex: 1 1 auto;
-      min-height: 120px;
-      resize: none;
-      overflow-y: auto;
-    }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 <header>
   <div class="header-inner container">
-    <div class="brand">
+    <a class="brand" href="index.html" aria-label="DFG — на главную">
       <img src="img/dfg_logo.png" alt="DFG — Дизайн. Функция. Геометрия.">
       <div>
         <div class="title">DFG — Дизайн. Функция. Геометрия.</div>
         <div class="subtitle">Гомель · Добруш — 3D, чертежи, распил, сборка</div>
       </div>
-    </div>
-    <nav>
-      <a href="#services">Услуги</a>
-      <a href="#portfolio">Работы</a>
+    </a>
+    <nav aria-label="Основная навигация">
+      <a href="custom.html">Мебель на заказ</a>
+      <a href="designers.html">Дизайнерам</a>
+      <a href="design.html">Проектирование</a>
+      <a href="index.html#portfolio">Работы</a>
       <a href="#contact">Контакты</a>
     </nav>
   </div>
@@ -354,6 +74,17 @@
 </section>
 
 <main class="container">
+
+  <section id="directions" aria-labelledby="directions-title">
+    <h2 id="directions-title">Чем я могу помочь</h2>
+    <p class="lead">Мебель под ключ, техническое партнёрство или отдельный проект — выберите нужный формат.</p>
+    <div class="service-grid">
+      <article class="service-card"><h3>Мебель на заказ</h3><p>Кухни, шкафы и другая корпусная мебель — от проекта до установки. Примеры работ и ориентировочные цены.</p><a class="btn" href="custom.html">Посмотреть работы и цены</a></article>
+      <article class="service-card"><h3>Дизайнерам интерьера</h3><p>Техническая проработка и реализация ваших мебельных проектов — от эскиза до монтажа.</p><a class="btn" href="designers.html">Подробнее о сотрудничестве</a></article>
+      <article class="service-card"><h3>Проектирование мебели</h3><p>Отдельный проект без заказа изготовления: конструкция, деталировка и чертежи для производства и сборки.</p><a class="btn" href="design.html">Подробнее о проектировании</a></article>
+    </div>
+  </section>
+
 
   <section id="services">
     <h2>Как я работаю</h2>
@@ -415,21 +146,21 @@
 </main>
 
 <!-- MODAL -->
-<div id="callback-modal" class="modal">
+<div id="callback-modal" class="modal" role="dialog" aria-modal="true" aria-label="Заказать звонок">
   <div class="modal-content">
 
     <div class="modal-header">Заказать звонок</div>
-    <button class="modal-close" id="close-form">×</button>
+    <button class="modal-close" id="close-form" aria-label="Закрыть">×</button>
 
     <h3 id="modal-title" style="display:none;"></h3>
     <div id="modal-message" style="display:none; text-align:center; font-size:17px; margin-bottom:12px;"></div>
 
     <form id="callback-form" class="modal-form">
         <input type="hidden" name="access_key" value="6b357ccf-6173-467a-af4d-17d873c3c2f2">
-        <input type="text" name="name" id="name-field" placeholder="Ваше имя">
-        <input type="tel" name="phone" id="phone-input" placeholder="Ваш телефон" required>
+        <input type="text" name="name" id="name-field" aria-label="Ваше имя" autocomplete="name" placeholder="Ваше имя">
+        <input type="tel" name="phone" id="phone-input" aria-label="Ваш телефон" autocomplete="tel" placeholder="Ваш телефон" required>
         <div id="phone-error" style="display:none; color:#b00020; font-size:14px; margin-top:-8px; margin-bottom:8px;"></div>
-        <textarea name="message" placeholder="Комментарий" maxlength="10000"></textarea>
+        <textarea aria-label="Комментарий" name="message" placeholder="Комментарий" maxlength="10000"></textarea>
     </form>
 
     <div class="modal-submit-bar">
@@ -448,138 +179,9 @@
   </div>
 </footer>
 
-<script>
-  const modal = document.getElementById('callback-modal');
-  const openBtn = document.getElementById('open-form');
-  const closeBtn = document.getElementById('close-form');
-  const submitBtn = document.getElementById('submit-btn');
-  const closeAfterSubmitBtn = document.getElementById('close-after-submit');
-  const form = document.getElementById('callback-form');
-  const modalTitle = document.getElementById('modal-title');
-  const modalMessage = document.getElementById('modal-message');
-  const phoneInput = document.getElementById('phone-input');
-  const phoneError = document.getElementById('phone-error');
 
-  function showResult(title, message) {
-    form.style.display = "none";
-    document.querySelector('.modal-header').style.display = "none";
 
-    modalTitle.style.display = "block";
-    modalTitle.textContent = title;
 
-    modalMessage.style.display = "block";
-    modalMessage.textContent = message;
-
-    submitBtn.style.display = "none";
-    closeAfterSubmitBtn.style.display = "block";
-  }
-
-  // Открытие
-  openBtn.addEventListener('click', () => {
-    modal.classList.add('show');
-    document.body.classList.add("modal-open");
-
-    modalMessage.style.display = "none";
-    form.style.display = "block";
-
-    setTimeout(() => {
-      document.getElementById("name-field").focus();
-    }, 150);
-  });
-
-  // Закрытие
-  closeBtn.addEventListener('click', () => {
-    modal.classList.remove('show');
-    document.body.classList.remove("modal-open");
-  });
-
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.classList.remove('show');
-      document.body.classList.remove("modal-open");
-    }
-  });
-
-  // Мягкая валидация телефона
-  function isValidPhone(phone) {
-    const digits = phone.replace(/\D/g, "");
-    return digits.length >= 7; // Не слишком строго, но от спама спасает
-  }
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const phone = phoneInput.value.trim();
-    if (!isValidPhone(phone)) {
-        phoneError.textContent = "Укажите корректный номер телефона";
-        phoneError.style.display = "block";
-        phoneInput.classList.add("input-error");
-
-        modalMessage.style.display = "none"; // скрыть верхнее сообщение
-        return;
-    }
-
-    // Телефон валиден — очищаем ошибку
-    phoneError.style.display = "none";
-    phoneInput.classList.remove("input-error");
-
-    const formData = new FormData(form);
-
-    const original = submitBtn.textContent;
-    submitBtn.textContent = "Отправляется...";
-    submitBtn.disabled = true;
-
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-          showResult("Готово!", "Спасибо! Я перезвоню вам в ближайшее время.");
-      } else {
-          showResult("Ошибка", "Извините, не получилось отправить сообщение.");
-      }
-
-    } catch (err) {
-      showResult("Ошибка", "Извините, не получилось отправить сообщение.");
-    } finally {
-      submitBtn.textContent = original;
-      submitBtn.disabled = false;
-    }
-  });
-
-  closeAfterSubmitBtn.addEventListener('click', () => {
-    modal.classList.remove('show');
-    document.body.classList.remove("modal-open");
-
-    form.reset();
-    form.style.display = "block";
-
-    modalTitle.style.display = "none";
-    modalMessage.style.display = "none";
-
-    submitBtn.style.display = "block";
-    closeAfterSubmitBtn.style.display = "none";
-
-    document.querySelector('.modal-header').style.display = "flex";
-
-    phoneError.style.display = "none";
-    phoneInput.classList.remove("input-error");
-  });
-</script>
-<script>
-  function updateHeaderOffset() {
-    const headerHeight = document.querySelector('header').offsetHeight;
-    document.documentElement.style.setProperty('--header-offset', (headerHeight - 40)+ 'px');
-  }
-
-  updateHeaderOffset();
-
-  window.addEventListener('resize', updateHeaderOffset);
-</script>
-
+<script src="site.js" defer></script>
 </body>
 </html>

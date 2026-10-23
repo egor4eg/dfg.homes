@@ -410,3 +410,20 @@ body.image-open { overflow:hidden; }
  .design-hero .hero-bg { background-position:42% center; }
  .design-hero::before { background:linear-gradient(90deg, rgba(15,23,29,.76), rgba(15,23,29,.42)); }
 }
+
+/* Project deliverables sit directly on the design hero. */
+.design-hero { height:auto; min-height:72vh; max-height:none; }
+.design-hero .hero-inner { padding:48px 24px; }
+.design-hero::before { background:linear-gradient(0deg, rgba(15,23,29,.65), transparent 75%), linear-gradient(90deg, rgba(15,23,29,.72), rgba(15,23,29,.4) 55%, rgba(15,23,29,.08)); }
+.project-inclusions { margin-top:36px; max-width:1000px; }
+.project-inclusions h2 { text-align:left; font-size:18px; margin-bottom:18px; }
+.inclusions-list { list-style:none; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:28px; }
+.inclusions-list li { border-top:1px solid rgba(255,255,255,.45); padding-top:16px; }
+.inclusions-list h3 { font-size:17px; margin-bottom:8px; }
+.design-hero .inclusions-list p { font-size:15px; line-height:1.6; margin:0; color:#fff; }
+@media(max-width:700px) {
+ .design-hero .hero-inner { padding:36px 24px; }
+ .inclusions-list { grid-template-columns:1fr; gap:18px; }
+ .project-inclusions { margin-top:28px; }
+ .design-hero::before { background:linear-gradient(90deg, rgba(15,23,29,.82), rgba(15,23,29,.64)); }
+}
